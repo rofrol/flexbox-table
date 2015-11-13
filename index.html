@@ -12,6 +12,30 @@
                 justify-content: space-between;
                 align-items: baseline;
             }
+            .flexcol {
+                /* needed for IE when there is :before element with display: flex
+                   Probably connected with this:
+                   https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+                */
+                flex: 1 0 0%;
+            }
+
+            /* #content needed so :first-child will work */
+            /* http://stackoverflow.com/questions/5753351/how-to-make-double-lines-border-in-css-each-line-in-different-color-without-us/5756438#5756438 */
+            #content .flexrow:not(:first-child):not(.label) {
+                margin-top: 2px;
+                padding-top: 8px;
+                border-top: 1px solid rgb(221, 219, 217);
+                position: relative;
+            }
+            #content .flexrow:not(:first-child):not(.label):before {
+                content: '';
+                border-top: solid 1px white;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
             .flexcol1 {
                 width: 40%;
             }
@@ -22,13 +46,7 @@
                 width: 10%;
                 text-align: right;
             }
-            .hr_grey {
-                /* http://stackoverflow.com/questions/2017227/styling-a-hr-for-internet-explorer/4382906#4382906 */
-                border-left: 0px;
-                border-right: 0px;
-                border-top: 1px solid rgb(221, 219, 217); /*Your top color*/
-                border-bottom: 1px solid #ffffff; /*Your bottom color*/
-            }
+
             .hide {
                 display: none;
             }
@@ -36,29 +54,29 @@
     </head>
     <body>
     <button onClick="toggle('#optionalLabel')">toggle optionalLabel</button>
+    <div id="content">
+        <div class="flexrow">
+            <div class="flexcol flexcol1">one</div>
+            <div class="flexcol flexcol2"><input id="sth" value="sth"></div>
+            <div class="flexcol flexcol3"><button>info</button></div>
+        </div>
+        <div class="flexrow label hide" id="optionalLabel">
+            <div class="flexcol flexcol1"></div>
+            <div class="flexcol flexcol2"><label for="sth">some label</label></div>
+            <div class="flexcol flexcol3"></div>
+        </div>
 
-    <div class="flexrow">
-        <div class="flexcol1">one</div>
-        <div class="flexcol2"><input id="sth" value="sth"></div>
-        <div class="flexcol3"><button>info</button></div>
-    </div>
-    <div class="flexrow hide" id="optionalLabel">
-        <div class="flexcol1"></div>
-        <div class="flexcol2"><label for="sth">some label</label></div>
-        <div class="flexcol3"></div>
-    </div>
+        <div class="flexrow">
+            <div class="flexcol flexcol1">one</div>
+            <div class="flexcol flexcol2"><input value="sth"></div>
+            <div class="flexcol flexcol3"><button>info</button></div>
+        </div>
 
-    <hr class="hr_grey">
-    <div class="flexrow">
-        <div class="flexcol1">one</div>
-        <div class="flexcol2"><input value="sth"></div>
-        <div class="flexcol3"><button>info</button></div>
-    </div>
-    <hr class="hr_grey">
-    <div class="flexrow">
-        <div class="flexcol1">one</div>
-        <div class="flexcol2"><input value="sth"></div>
-        <div class="flexcol3"><button>info</button></div>
+        <div class="flexrow">
+            <div class="flexcol flexcol1">one</div>
+            <div class="flexcol flexcol2"><input value="sth"></div>
+            <div class="flexcol flexcol3"><button>info</button></div>
+        </div>
     </div>
     <script>
         function toggle(selector) {
