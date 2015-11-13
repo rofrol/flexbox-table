@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                background-color: rgb(245, 243, 241);
+            }
+            .flexrow {
+                display: flex;
+                padding-bottom: 10px;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+            .flexcol1 {
+                width: 40%;
+            }
+            .flexcol2 {
+                width: 30%;
+            }
+            .flexcol3 {
+                width: 10%;
+                text-align: right;
+            }
+            .hr_grey {
+                /* http://stackoverflow.com/questions/2017227/styling-a-hr-for-internet-explorer/4382906#4382906 */
+                border-left: 0px;
+                border-right: 0px;
+                border-top: 1px solid rgb(221, 219, 217); /*Your top color*/
+                border-bottom: 1px solid #ffffff; /*Your bottom color*/
+            }
+            .hide {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+    <button onClick="toggle('#optionalLabel')">toggle optionalLabel</button>
+
+    <div class="flexrow">
+        <div class="flexcol1">one</div>
+        <div class="flexcol2"><input id="sth" value="sth"></div>
+        <div class="flexcol3"><button>info</button></div>
+    </div>
+    <div class="flexrow hide" id="optionalLabel">
+        <div class="flexcol1"></div>
+        <div class="flexcol2"><label for="sth">some label</label></div>
+        <div class="flexcol3"></div>
+    </div>
+
+    <hr class="hr_grey">
+    <div class="flexrow">
+        <div class="flexcol1">one</div>
+        <div class="flexcol2"><input value="sth"></div>
+        <div class="flexcol3"><button>info</button></div>
+    </div>
+    <hr class="hr_grey">
+    <div class="flexrow">
+        <div class="flexcol1">one</div>
+        <div class="flexcol2"><input value="sth"></div>
+        <div class="flexcol3"><button>info</button></div>
+    </div>
+    <script>
+        function toggle(selector) {
+            var elem = document.querySelector(selector);
+            if (elem.classList.contains('hide')) {
+                elem.classList.remove('hide');
+            } else {
+                elem.classList.add('hide');
+            }
+        }
+    </script>
+    </body>
+</html>
