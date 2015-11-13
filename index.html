@@ -79,12 +79,7 @@
     </div>
     <script>
         function toggle(selector) {
-            var elem = document.querySelector(selector);
-            if (elem.classList.contains('hide')) {
-                elem.classList.remove('hide');
-            } else {
-                elem.classList.add('hide');
-            }
+            document.querySelector(selector).classList.toggle('hide');
         }
     </script>
     </body>
