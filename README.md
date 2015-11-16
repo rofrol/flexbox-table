@@ -1,6 +1,6 @@
 # Flexbox table
 
-[Demo](https://cdn.rawgit.com/rofrol/flexbox-table/master/index.html)
+[Demo](https://rawgit.com/rofrol/flexbox-table/master/index.html)
 
 ![](/screenshot.png)
 
