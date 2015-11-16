@@ -17,7 +17,7 @@
                    Probably connected with this:
                    https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
                 */
-                flex: 1 0 0%;
+                flex: 100 0 0%;
             }
 
             /* #content needed so :first-child will work */
@@ -36,14 +36,14 @@
                 left: 0;
             }
             .flexcol1 {
-                width: 40%;
+                flex-grow: 60;
             }
             .flexcol2 {
-                width: 30%;
+                flex-grow: 40;
             }
             .flexcol3 {
-                width: 10%;
                 text-align: right;
+                flex-grow: 20;
             }
 
             .hide {
